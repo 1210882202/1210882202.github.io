@@ -1,0 +1,36 @@
+table,
+td,
+th {
+  border: $color_002A56 $line_1px solid;
+  width: 100%;
+  text-align: left;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+td,
+th {
+  padding: $margin_12u;
+}
+th {
+  font-variation-settings: 'wght' $font-weight_500;
+}
+td {
+  font-variation-settings: 'wght' $font-weight_300;
+}
+table,
+tboby,
+tr,
+td {
+  background-color: inherit;
+}
+.highlight>table {
+  min-width: fit-content;
+}
+@media (max-width: 950px) {
+  .block-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

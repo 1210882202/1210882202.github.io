@@ -1,0 +1,478 @@
+<!-- frame/layout/layout - begin -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+
+        <!-- frame/layout/partials/head - begin -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+        <meta name="author" content="Hzm">
+
+        <link rel="icon" href="/favicon.ico">
+        <title>MySQL | 个人博客</title>
+
+        <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');</style>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/frame.js"></script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <script src='https://unpkg.com/valine@1.4.16/dist/Valine.min.js'></script>
+        <!-- frame/layout/partials/head - end -->
+
+    <!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
+
+    <body>
+        <div class="mask-border"></div>
+        <div class="wrapper">
+
+            <!-- frame/layout/partials/header - begin -->
+            <div class="header">
+                <div class="flex-container">
+                    <div class="header-inner">
+                        <div class="site-brand-container">
+                            <a href="/">Hu Diao.</a>
+                        </div>
+                        <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">Menu</div>
+                        <nav class="site-nav">
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a href="/">主页</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/archives/">博客</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/tag/">标签</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/about/">关于</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- frame/layout/partials/header - end -->
+
+            <div class="main">
+                <div class="flex-container">
+
+                    <!-- frame/layout/post - begin -->
+                    <article id="post">
+                        <!-- frame/layout/post/post-head - begin -->
+                        <div class="post-head">
+                            <div class="post-info">
+                                <div class="tag-list">
+                                    <span class="post-tag">
+                                        <a href="/tag/language/">language</a>
+                                    </span>
+                                </div>
+                                <div class="post-title">
+                                    MySQL
+                                </div>
+                                <span class="post-date">
+                                    1月 21, 2022
+                                </span>
+                            </div>
+                            <div class="post-img">
+                                <div class="h-line-primary"></div>
+
+                            </div>
+                        </div>
+                        <!-- frame/layout/post/post-head - end -->
+                        <!-- frame/layout/post/post-content - begin -->
+                        <div class="post-content">
+                            <ul>
+<li>DDL (Data Definition Language)&#xFF0C;&#x5305;&#x62EC;<code>CREATE</code>&#x3001;<code>DROP</code>&#x3001;<code>ALTER</code>&#x7B49;</li>
+<li>DML (Data Manipulation Language)&#xFF0C;&#x5305;&#x62EC;<code>INSERT</code>&#x3001;<code>DELETE</code>&#x3001;<code>UPDATE</code>&#x3001;<code>SELECT</code>&#x7B49;</li>
+<li>DCL (Data Control Language)&#xFF0C;&#x5305;&#x62EC;<code>COMMIT</code>&#x3001;<code>ROLLBACK</code>&#x3001;<code>GRANT</code>&#x3001;<code>REVOKE</code>&#x7B49;</li>
+<li>SQL&#x8BED;&#x53E5;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;</li>
+</ul>
+<hr>
+<div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#0-shi-yong-mysql">0&#x3001;&#x4F7F;&#x7528;MySQL</a><ul>
+<li><a href="#0-1-liao-jie-shu-ju-ku-he-biao">0.1&#x3001;&#x4E86;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x548C;&#x8868;</a></li>
+<li><a href="#0-2-xuan-ze-shu-ju-ku">0.2&#x3001;&#x9009;&#x62E9;&#x6570;&#x636E;&#x5E93;</a></li>
+</ul>
+</li>
+<li><a href="#1-chuang-jian-biao">1&#x3001;&#x521B;&#x5EFA;&#x8868;</a></li>
+<li><a href="#2-shan-chu-biao">2&#x3001;&#x5220;&#x9664;&#x8868;</a></li>
+<li><a href="#3-geng-xin-biao">3&#x3001;&#x66F4;&#x65B0;&#x8868;</a><ul>
+<li><a href="#3-1-tian-jia-lie">3.1&#x3001;&#x6DFB;&#x52A0;&#x5217;</a></li>
+<li><a href="#3-2-shan-chu-lie">3.2&#x3001;&#x5220;&#x9664;&#x5217;</a></li>
+</ul>
+</li>
+<li><a href="#4-cha-ru-shu-ju">4&#x3001;&#x63D2;&#x5165;&#x6570;&#x636E;</a></li>
+<li><a href="#5-shan-chu-shu-ju">5&#x3001;&#x5220;&#x9664;&#x6570;&#x636E;</a></li>
+<li><a href="#6-qing-kong-shu-ju">6&#x3001;&#x6E05;&#x7A7A;&#x6570;&#x636E;</a></li>
+<li><a href="#7-geng-xin-shu-ju">7&#x3001;&#x66F4;&#x65B0;&#x6570;&#x636E;</a></li>
+<li><a href="#8-cha-xun-shu-ju">8&#x3001;&#x67E5;&#x8BE2;&#x6570;&#x636E;</a><ul>
+<li><a href="#8-1-cha-xun-dan-ge-lie">8.1&#x3001;&#x67E5;&#x8BE2;&#x5355;&#x4E2A;&#x5217;</a></li>
+<li><a href="#8-2-cha-xun-duo-ge-lie">8.2&#x3001;&#x67E5;&#x8BE2;&#x591A;&#x4E2A;&#x5217;</a></li>
+<li><a href="#8-3-cha-xun-suo-you-lie">8.3&#x3001;&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5217;</a></li>
+<li><a href="#8-4-cha-xun-bu-tong-de-xing">8.4&#x3001;&#x67E5;&#x8BE2;&#x4E0D;&#x540C;&#x7684;&#x884C;</a></li>
+<li><a href="#8-5-xian-zhi-jie-guo">8.5&#x3001;&#x9650;&#x5236;&#x7ED3;&#x679C;</a></li>
+<li><a href="#8-6-shi-yong-wan-quan-xian-ding-de-biao-ming">8.6&#x3001;&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x9650;&#x5B9A;&#x7684;&#x8868;&#x540D;</a></li>
+</ul>
+</li>
+<li><a href="#9-guo-lu-shu-ju">9&#x3001;&#x8FC7;&#x6EE4;&#x6570;&#x636E;</a><ul>
+<li><a href="#9-1-where-zi-ju">9.1&#x3001;<code>WHERE</code>&#x5B50;&#x53E5;</a><ul>
+<li><a href="#9-2-where-zi-ju-cao-zuo-fu">9.2&#x3001;<code>WHERE</code>&#x5B50;&#x53E5;&#x64CD;&#x4F5C;&#x7B26;</a></li>
+<li><a href="#9-3-zu-he-where-zi-ju">9.3&#x3001;&#x7EC4;&#x5408;<code>WHERE</code>&#x5B50;&#x53E5;</a><ul>
+<li><a href="#9-3-1-and-cao-zuo-fu">9.3.1&#x3001;<code>AND</code>&#x64CD;&#x4F5C;&#x7B26;</a></li>
+<li><a href="#9-3-2-or-cao-zuo-fu">9.3.2&#x3001;<code>OR</code>&#x64CD;&#x4F5C;&#x7B26;</a></li>
+<li><a href="#9-3-3-ji-suan-ci-xu">9.3.3&#x3001;&#x8BA1;&#x7B97;&#x6B21;&#x5E8F;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#10-ju-he-han-shu">10&#x3001;&#x805A;&#x5408;&#x51FD;&#x6570;</a><ul>
+<li><a href="#10-1-count-han-shu">10.1&#x3001;<code>COUNT()</code>&#x51FD;&#x6570;</a></li>
+<li><a href="#10-2-sum-han-shu">10.2&#x3001;<code>SUM()</code>&#x51FD;&#x6570;</a></li>
+<li><a href="#10-3-avg-han-shu">10.3&#x3001;<code>AVG()</code>&#x51FD;&#x6570;</a></li>
+<li><a href="#10-4-max-han-shu">10.4&#x3001;<code>MAX()</code>&#x51FD;&#x6570;</a></li>
+<li><a href="#10-5-min-han-shu">10.5&#x3001;<code>MIN()</code>&#x51FD;&#x6570;</a></li>
+</ul>
+</li>
+<li><a href="#11-dui-shu-ju-jin-xing-fen-zu">11&#x3001;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x7EC4;</a><ul>
+<li><a href="#11-1-chuang-jian-fen-zu">11.1&#x3001;&#x521B;&#x5EFA;&#x5206;&#x7EC4;</a></li>
+<li><a href="#11-2-guo-lu-fen-zu">11.2&#x3001;&#x8FC7;&#x6EE4;&#x5206;&#x7EC4;</a></li>
+</ul>
+</li>
+<li><a href="#12-dui-jie-guo-jin-xing-pai-xu">12&#x3001;&#x5BF9;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;</a></li>
+<li><a href="#13-shi-yong-shi-tu">13&#x3001;&#x4F7F;&#x7528;&#x89C6;&#x56FE;</a><ul>
+<li><a href="#13-1-chuang-jian-shi-tu">13.1&#x3001;&#x521B;&#x5EFA;&#x89C6;&#x56FE;</a></li>
+<li><a href="#13-2-shan-chu-shi-tu">13.2&#x3001;&#x5220;&#x9664;&#x89C6;&#x56FE;</a></li>
+</ul>
+</li>
+<li><a href="#14-shi-yong-zi-cha-xun">14&#x3001;&#x4F7F;&#x7528;&#x5B50;&#x67E5;&#x8BE2;</a></li>
+<li><a href="#15-han-shu">15&#x3001;&#x51FD;&#x6570;</a><ul>
+<li><a href="#15-1-suan-zhu-han-shu">15.1&#x3001;&#x7B97;&#x672F;&#x51FD;&#x6570;</a></li>
+<li><a href="#15-2-zi-fu-chuan-han-shu">15.2&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x51FD;&#x6570;</a></li>
+<li><a href="#15-3-ri-qi-han-shu">15.3&#x3001;&#x65E5;&#x671F;&#x51FD;&#x6570;</a></li>
+<li><a href="#15-4-zhuan-huan-han-shu">15.4&#x3001;&#x8F6C;&#x6362;&#x51FD;&#x6570;</a></li>
+</ul>
+</li>
+<li><a href="#16-wei-ci">16&#x3001;&#x8C13;&#x8BCD;</a><ul>
+<li><a href="#16-1-like">16.1&#x3001;<code>LIKE</code></a><ul>
+<li><a href="#16-1-1-tong-pei-fu">16.1.1&#x3001;<code>%</code>&#x901A;&#x914D;&#x7B26;</a></li>
+<li><a href="#16-1-2-tong-pei-fu">16.1.2&#x3001;<code>_</code>&#x901A;&#x914D;&#x7B26;</a></li>
+</ul>
+</li>
+<li><a href="#16-2-between">16.2&#x3001;<code>BETWEEN</code></a></li>
+<li><a href="#16-3-is-null-he-is-not-null">16.3&#x3001;<code>IS NULL</code>&#x548C;<code>IS NOT NULL</code></a></li>
+<li><a href="#16-4-in-he-not-in">16.4&#x3001;<code>IN</code>&#x548C;<code>NOT IN</code></a><ul>
+<li><a href="#16-4-1-or-de-jian-bian-yong-fa">16.4.1&#x3001;<code>OR</code>&#x7684;&#x7B80;&#x4FBF;&#x7528;&#x6CD5;</a></li>
+<li><a href="#16-4-2-zi-cha-xun-can-shu">16.4.2&#x3001;&#x5B50;&#x67E5;&#x8BE2;&#x53C2;&#x6570;</a></li>
+</ul>
+</li>
+<li><a href="#16-5-exists">16.5&#x3001;<code>EXISTS</code></a></li>
+</ul>
+</li>
+<li><a href="#17-case-biao-da-shi">17&#x3001;<code>CASE</code>&#x8868;&#x8FBE;&#x5F0F;</a></li>
+<li><a href="#18-biao-de-jia-fa">18&#x3001;&#x8868;&#x7684;&#x52A0;&#x6CD5;</a></li>
+<li><a href="#19-lian-jie">19&#x3001;&#x8FDE;&#x7ED3;</a><ul>
+<li><a href="#19-1-nei-lian-jie">19.1&#x3001;&#x5185;&#x8FDE;&#x7ED3;</a></li>
+<li><a href="#19-2-wai-lian-jie">19.2&#x3001;&#x5916;&#x8FDE;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="#20-chuang-kou-han-shu">20.&#x7A97;&#x53E3;&#x51FD;&#x6570;</a><ul>
+<li><a href="#20-1-zhuan-yong-chuang-kou-han-shu">20.1&#x3001;&#x4E13;&#x7528;&#x7A97;&#x53E3;&#x51FD;&#x6570;</a></li>
+<li><a href="#20-2-ji-suan-yi-dong-ping-jun">20.2&#x3001;&#x8BA1;&#x7B97;&#x79FB;&#x52A8;&#x5E73;&#x5747;</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<hr>
+<h1><span id="0-shi-yong-mysql">0&#x3001;&#x4F7F;&#x7528;MySQL</span></h1><h2><span id="0-1-liao-jie-shu-ju-ku-he-biao">0.1&#x3001;&#x4E86;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x548C;&#x8868;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> TABLES;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> COLUMNS <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="0-2-xuan-ze-shu-ju-ku">0.2&#x3001;&#x9009;&#x62E9;&#x6570;&#x636E;&#x5E93;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE database_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="1-chuang-jian-biao">1&#x3001;&#x521B;&#x5EFA;&#x8868;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">(</span><br><span class="line">       col_1    <span class="type">CHAR</span>(<span class="number">5</span>)    <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">       col_2    <span class="type">INTEGER</span>    <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>,</span><br><span class="line">       col_3    <span class="type">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">       col_4    <span class="type">DATE</span></span><br><span class="line">       <span class="keyword">PRIMARY</span> KEY(col_1)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="2-shan-chu-biao">2&#x3001;&#x5220;&#x9664;&#x8868;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="3-geng-xin-biao">3&#x3001;&#x66F4;&#x65B0;&#x8868;</span></h1><h2><span id="3-1-tian-jia-lie">3.1&#x3001;&#x6DFB;&#x52A0;&#x5217;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">COLUMN</span> new_col <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<h2><span id="3-2-shan-chu-lie">3.2&#x3001;&#x5220;&#x9664;&#x5217;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> col;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="4-cha-ru-shu-ju">4&#x3001;&#x63D2;&#x5165;&#x6570;&#x636E;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name(col_1, col_2, col_3, col_4)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&apos;abcde&apos;</span>, <span class="number">6</span>, <span class="string">&apos;zh&apos;</span>, <span class="string">&apos;2008-08-08&apos;</span>),</span><br><span class="line">       (<span class="string">&apos;fffff&apos;</span>, <span class="number">1</span>, <span class="string">&apos;en&apos;</span>, <span class="string">&apos;2022-02-22&apos;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_1_name(col_1, col_2, col_3, col_4, col_5)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_2_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="5-shan-chu-shu-ju">5&#x3001;&#x5220;&#x9664;&#x6570;&#x636E;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> con;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="6-qing-kong-shu-ju">6&#x3001;&#x6E05;&#x7A7A;&#x6570;&#x636E;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="7-geng-xin-shu-ju">7&#x3001;&#x66F4;&#x65B0;&#x6570;&#x636E;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name</span><br><span class="line"><span class="keyword">SET</span> col <span class="operator">=</span> exp</span><br><span class="line"><span class="keyword">WHERE</span> con;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="8-cha-xun-shu-ju">8&#x3001;&#x67E5;&#x8BE2;&#x6570;&#x636E;</span></h1><h2><span id="8-1-cha-xun-dan-ge-lie">8.1&#x3001;&#x67E5;&#x8BE2;&#x5355;&#x4E2A;&#x5217;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> col</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="8-2-cha-xun-duo-ge-lie">8.2&#x3001;&#x67E5;&#x8BE2;&#x591A;&#x4E2A;&#x5217;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> col_1, col_2, col_3</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="8-3-cha-xun-suo-you-lie">8.3&#x3001;&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5217;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="8-4-cha-xun-bu-tong-de-xing">8.4&#x3001;&#x67E5;&#x8BE2;&#x4E0D;&#x540C;&#x7684;&#x884C;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> col</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>DISTINCT</code>&#x5173;&#x952E;&#x5B57;&#x5E94;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x5217;&#x800C;&#x4E0D;&#x4EC5;&#x662F;&#x524D;&#x7F6E;&#x5B83;&#x7684;&#x5217;</li>
+</ul>
+<h2><span id="8-5-xian-zhi-jie-guo">8.5&#x3001;&#x9650;&#x5236;&#x7ED3;&#x679C;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">LIMIT <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- &#x4ECE;&#x7B2C;4&#x884C;&#x5F00;&#x59CB;&#x53D6;3&#x884C;</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">LIMIT <span class="number">4</span>, <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">LIMIT <span class="number">3</span> <span class="keyword">OFFSET</span> <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x9996;&#x884C;&#x4E3A;&#x7B2C;0&#x884C;&#x800C;&#x4E0D;&#x662F;&#x7B2C;1&#x884C;</li>
+</ul>
+<h2><span id="8-6-shi-yong-wan-quan-xian-ding-de-biao-ming">8.6&#x3001;&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x9650;&#x5B9A;&#x7684;&#x8868;&#x540D;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> table_name.col</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="9-guo-lu-shu-ju">9&#x3001;&#x8FC7;&#x6EE4;&#x6570;&#x636E;</span></h1><h2><span id="9-1-where-zi-ju">9.1&#x3001;<code>WHERE</code>&#x5B50;&#x53E5;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> con;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="9-2-where-zi-ju-cao-zuo-fu">9.2&#x3001;<code>WHERE</code>&#x5B50;&#x53E5;&#x64CD;&#x4F5C;&#x7B26;</span></h3><ul>
+<li><img src="/./pic_01.jpg" alt="alt pic_01"></li>
+</ul>
+<h3><span id="9-3-zu-he-where-zi-ju">9.3&#x3001;&#x7EC4;&#x5408;<code>WHERE</code>&#x5B50;&#x53E5;</span></h3><h4><span id="9-3-1-and-cao-zuo-fu">9.3.1&#x3001;<code>AND</code>&#x64CD;&#x4F5C;&#x7B26;</span></h4><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> con_1 <span class="keyword">AND</span> con_2;</span><br></pre></td></tr></table></figure>
+
+<h4><span id="9-3-2-or-cao-zuo-fu">9.3.2&#x3001;<code>OR</code>&#x64CD;&#x4F5C;&#x7B26;</span></h4><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> con_1 <span class="keyword">OR</span> con_2;</span><br></pre></td></tr></table></figure>
+
+<h4><span id="9-3-3-ji-suan-ci-xu">9.3.3&#x3001;&#x8BA1;&#x7B97;&#x6B21;&#x5E8F;</span></h4><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> (con_1 <span class="keyword">OR</span> con_2) <span class="keyword">AND</span> con_3;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>SQL</code>&#x50CF;&#x591A;&#x6570;&#x8BED;&#x8A00;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x5904;&#x7406;<code>OR</code>&#x64CD;&#x4F5C;&#x7B26;&#x524D;&#xFF0C;&#x4F18;&#x5148;&#x5904;&#x7406;<code>AND</code>&#x64CD;&#x4F5C;&#x7B26;</li>
+<li>&#x5706;&#x62EC;&#x53F7;&#x7684;&#x8BA1;&#x7B97;&#x6B21;&#x5E8F;&#x6BD4;<code>AND</code>&#x548C;<code>OR</code>&#x64CD;&#x4F5C;&#x7B26;&#x9AD8;</li>
+</ul>
+<hr>
+<h1><span id="10-ju-he-han-shu">10&#x3001;&#x805A;&#x5408;&#x51FD;&#x6570;</span></h1><ul>
+<li><img src="/./pic_02.jpg" alt="alt pic_02"></li>
+</ul>
+<h2><span id="10-1-count-han-shu">10.1&#x3001;<code>COUNT()</code>&#x51FD;&#x6570;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(col)</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>COUNT(column)</code>&#x5FFD;&#x7565;&#x5217;&#x503C;&#x4E3A;<code>NULL</code>&#x7684;&#x884C;</li>
+<li><code>COUNT(*)</code>&#x5305;&#x542B;&#x5217;&#x503C;&#x4E3A;<code>NULL</code>&#x7684;&#x884C;</li>
+</ul>
+<h2><span id="10-2-sum-han-shu">10.2&#x3001;<code>SUM()</code>&#x51FD;&#x6570;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUM</span>(col)</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>SUM()</code>&#x51FD;&#x6570;&#x5FFD;&#x7565;&#x5217;&#x503C;&#x4E3A;<code>NULL</code>&#x7684;&#x884C;</li>
+</ul>
+<h2><span id="10-3-avg-han-shu">10.3&#x3001;<code>AVG()</code>&#x51FD;&#x6570;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(col)</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>AVG()</code>&#x51FD;&#x6570;&#x5FFD;&#x7565;&#x5217;&#x503C;&#x4E3A;<code>NULL</code>&#x7684;&#x884C;</li>
+</ul>
+<h2><span id="10-4-max-han-shu">10.4&#x3001;<code>MAX()</code>&#x51FD;&#x6570;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(col)</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>MAX()</code>&#x51FD;&#x6570;&#x5FFD;&#x7565;&#x5217;&#x503C;&#x4E3A;<code>NULL</code>&#x7684;&#x884C;</li>
+</ul>
+<h2><span id="10-5-min-han-shu">10.5&#x3001;<code>MIN()</code>&#x51FD;&#x6570;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(col)</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>MIN()</code>&#x51FD;&#x6570;&#x5FFD;&#x7565;&#x5217;&#x503C;&#x4E3A;<code>NULL</code>&#x7684;&#x884C;</li>
+</ul>
+<hr>
+<h1><span id="11-dui-shu-ju-jin-xing-fen-zu">11&#x3001;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x7EC4;</span></h1><h2><span id="11-1-chuang-jian-fen-zu">11.1&#x3001;&#x521B;&#x5EFA;&#x5206;&#x7EC4;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> col;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="11-2-guo-lu-fen-zu">11.2&#x3001;&#x8FC7;&#x6EE4;&#x5206;&#x7EC4;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> col</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;=</span> <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="12-dui-jie-guo-jin-xing-pai-xu">12&#x3001;&#x5BF9;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> col_1 <span class="keyword">DESC</span>, col_2 <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x7684;&#x6392;&#x5E8F;&#x987A;&#x5E8F;&#x662F;&#x5347;&#x5E8F;&#xFF08;<code>ASC</code>&#xFF09;&#x6392;&#x5E8F;</li>
+<li>&#x987A;&#x5E8F;&#x5173;&#x952E;&#x5B57;&#x53EA;&#x5E94;&#x7528;&#x5230;&#x76F4;&#x63A5;&#x4F4D;&#x4E8E;&#x5176;&#x524D;&#x9762;&#x7684;&#x5217;&#x540D;</li>
+</ul>
+<hr>
+<h1><span id="13-shi-yong-shi-tu">13&#x3001;&#x4F7F;&#x7528;&#x89C6;&#x56FE;</span></h1><h2><span id="13-1-chuang-jian-shi-tu">13.1&#x3001;&#x521B;&#x5EFA;&#x89C6;&#x56FE;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> view_name(col_1, col_2) <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> col_1, col_2</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="13-2-shan-chu-shi-tu">13.2&#x3001;&#x5220;&#x9664;&#x89C6;&#x56FE;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> view_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="14-shi-yong-zi-cha-xun">14&#x3001;&#x4F7F;&#x7528;&#x5B50;&#x67E5;&#x8BE2;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">      <span class="keyword">FROM</span> table_name</span><br><span class="line">      <span class="keyword">WHERE</span> con_1) <span class="keyword">AS</span> sub_table</span><br><span class="line"><span class="keyword">WHERE</span> con_2;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="15-han-shu">15&#x3001;&#x51FD;&#x6570;</span></h1><h2><span id="15-1-suan-zhu-han-shu">15.1&#x3001;&#x7B97;&#x672F;&#x51FD;&#x6570;</span></h2><ul>
+<li><img src="/./pic_03.jpg" alt="alt pic_03"></li>
+</ul>
+<h2><span id="15-2-zi-fu-chuan-han-shu">15.2&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x51FD;&#x6570;</span></h2><ul>
+<li><img src="/./pic_04.jpg" alt="alt pic_04"></li>
+</ul>
+<h2><span id="15-3-ri-qi-han-shu">15.3&#x3001;&#x65E5;&#x671F;&#x51FD;&#x6570;</span></h2><ul>
+<li>&#x65E5;&#x671F;&#x5FC5;&#x987B;&#x4E3A;&#x683C;&#x5F0F;yyyy-mm-dd</li>
+<li><img src="/./pic_05.jpg" alt="alt pic_05"></li>
+</ul>
+<h2><span id="15-4-zhuan-huan-han-shu">15.4&#x3001;&#x8F6C;&#x6362;&#x51FD;&#x6570;</span></h2><ul>
+<li><img src="/./pic_06.jpg" alt="alt pic_06"></li>
+</ul>
+<hr>
+<h1><span id="16-wei-ci">16&#x3001;&#x8C13;&#x8BCD;</span></h1><h2><span id="16-1-like">16.1&#x3001;<code>LIKE</code></span></h2><h3><span id="16-1-1-tong-pei-fu">16.1.1&#x3001;<code>%</code>&#x901A;&#x914D;&#x7B26;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">LIKE</span> <span class="string">&apos;a%&apos;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">LIKE</span> <span class="string">&apos;%b%&apos;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">LIKE</span> <span class="string">&apos;a%c&apos;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>%</code>&#x4EE3;&#x8868;&#x641C;&#x7D22;&#x6A21;&#x5F0F;&#x4E2D;&#x7ED9;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;0&#x4E2A;&#x3001;1&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x7B26;</li>
+<li><code>%</code>&#x4E0D;&#x80FD;&#x5339;&#x914D;<code>NULL</code></li>
+</ul>
+<h3><span id="16-1-2-tong-pei-fu">16.1.2&#x3001;<code>_</code>&#x901A;&#x914D;&#x7B26;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">LIKE</span> <span class="string">&apos;_bc&apos;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>_</code>&#x7684;&#x7528;&#x9014;&#x4E0E;<code>%</code>&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x53EA;&#x5339;&#x914D;1&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4E0D;&#x80FD;&#x591A;&#x4E5F;&#x4E0D;&#x80FD;&#x5C11;</li>
+</ul>
+<h2><span id="16-2-between">16.2&#x3001;<code>BETWEEN</code></span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="16-3-is-null-he-is-not-null">16.3&#x3001;<code>IS NULL</code>&#x548C;<code>IS NOT NULL</code></span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="16-4-in-he-not-in">16.4&#x3001;<code>IN</code>&#x548C;<code>NOT IN</code></span></h2><h3><span id="16-4-1-or-de-jian-bian-yong-fa">16.4.1&#x3001;<code>OR</code>&#x7684;&#x7B80;&#x4FBF;&#x7528;&#x6CD5;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">IN</span> (opt_1, opt_3, opt_5);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">NOT</span> <span class="keyword">IN</span> (opt_2, opt_4);</span><br></pre></td></tr></table></figure>
+
+<h3><span id="16-4-2-zi-cha-xun-can-shu">16.4.2&#x3001;&#x5B50;&#x67E5;&#x8BE2;&#x53C2;&#x6570;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_1_name</span><br><span class="line"><span class="keyword">WHERE</span> col <span class="keyword">IN</span> (<span class="keyword">SELECT</span> col</span><br><span class="line">              <span class="keyword">FROM</span> table_2_name</span><br><span class="line">              <span class="keyword">WHERE</span> con);</span><br></pre></td></tr></table></figure>
+
+<h2><span id="16-5-exists">16.5&#x3001;<code>EXISTS</code></span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_1_name <span class="keyword">AS</span> t1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">              <span class="keyword">FROM</span> table_2_name <span class="keyword">AS</span> t2</span><br><span class="line">              <span class="keyword">WHERE</span> t1.id <span class="operator">=</span> t2.id);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="17-case-biao-da-shi">17&#x3001;<code>CASE</code>&#x8868;&#x8FBE;&#x5F0F;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> col, <span class="keyword">CASE</span> <span class="keyword">WHEN</span> con_1 <span class="keyword">THEN</span> exp_1</span><br><span class="line">                 <span class="keyword">WHEN</span> con_2 <span class="keyword">THEN</span> exp_2</span><br><span class="line">                 <span class="keyword">WHEN</span> con_3 <span class="keyword">THEN</span> exp_3</span><br><span class="line">            <span class="keyword">END</span> <span class="keyword">AS</span> new_col</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="18-biao-de-jia-fa">18&#x3001;&#x8868;&#x7684;&#x52A0;&#x6CD5;</span></h1><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> col_1, col_2</span><br><span class="line"><span class="keyword">FROM</span> table_1_name</span><br><span class="line"><span class="keyword">WHERE</span> con_1</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> col_1, col_2</span><br><span class="line"><span class="keyword">FROM</span> table_2_name</span><br><span class="line"><span class="keyword">WHERE</span> con_2;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>UNION</code>&#x4ECE;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x96C6;&#x4E2D;&#x81EA;&#x52A8;&#x53BB;&#x9664;&#x4E86;&#x91CD;&#x590D;&#x7684;&#x884C;&#xFF0C;&#x4F7F;&#x7528;<code>UNION ALL</code>&#x4E0D;&#x53D6;&#x6D88;&#x91CD;&#x590D;&#x7684;&#x884C;</li>
+<li>&#x5728;&#x4F7F;&#x7528;<code>UNION</code>&#x7EC4;&#x5408;&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x6761;<code>ORDER BY</code>&#x5B50;&#x53E5;&#xFF0C;&#x5B83;&#x5FC5;&#x987B;&#x51FA;&#x73B0;&#x5728;&#x6700;&#x540E;&#x4E00;&#x6761;<code>SELECT</code>&#x8BED;&#x53E5;&#x4E4B;&#x540E;</li>
+</ul>
+<hr>
+<h1><span id="19-lian-jie">19&#x3001;&#x8FDE;&#x7ED3;</span></h1><h2><span id="19-1-nei-lian-jie">19.1&#x3001;&#x5185;&#x8FDE;&#x7ED3;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_1_name <span class="keyword">AS</span> t1 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> table_2_name <span class="keyword">AS</span> t2</span><br><span class="line"> <span class="keyword">ON</span> con;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="19-2-wai-lian-jie">19.2&#x3001;&#x5916;&#x8FDE;&#x7ED3;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_1_name <span class="keyword">AS</span> t1 <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table_2_name <span class="keyword">AS</span> t2</span><br><span class="line"> <span class="keyword">ON</span> con;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> table_1_name <span class="keyword">AS</span> t1 <span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table_2_name <span class="keyword">AS</span> t2</span><br><span class="line"> <span class="keyword">ON</span> con;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="20-chuang-kou-han-shu">20.&#x7A97;&#x53E3;&#x51FD;&#x6570;</span></h1><h2><span id="20-1-zhuan-yong-chuang-kou-han-shu">20.1&#x3001;&#x4E13;&#x7528;&#x7A97;&#x53E3;&#x51FD;&#x6570;</span></h2><ul>
+<li><img src="/./pic_07.jpg" alt="alt pic_07"></li>
+</ul>
+<h2><span id="20-2-ji-suan-yi-dong-ping-jun">20.2&#x3001;&#x8BA1;&#x7B97;&#x79FB;&#x52A8;&#x5E73;&#x5747;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(col_1) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> col_2 <span class="keyword">ROWS</span> <span class="number">4</span> PRECEDING),</span><br><span class="line">       <span class="built_in">AVG</span>(col_1) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> col_2 <span class="keyword">ROWS</span> <span class="keyword">BETWEEN</span> <span class="number">1</span> PRECEDING <span class="keyword">AND</span> <span class="number">1</span> FOLLOWING)</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="references">References</span></h1><ul>
+<li>&#x300A;MySQL&#x5FC5;&#x77E5;&#x5FC5;&#x4F1A;&#x300B;</li>
+<li><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/course/309/">&#x963F;&#x91CC;&#x4E91; &#x5929;&#x6C60; SQL&#x5165;&#x95E8;&#x4E0E;&#x5B9E;&#x8DF5;</a></li>
+</ul>
+
+                        </div>
+                        <script>
+                            window.onload = detectors();
+                        </script>
+                        <!-- frame/layout/post/post-content - end -->
+                        <!-- frame/layout/post/post-footer - begin -->
+                        <div class="post-footer">
+                            <div class="h-line-primary"></div>
+                            <nav class="post-nav">
+                                <div class="prev-item">
+                                    <div class="icon arrow-left"></div>
+                                    <div class="post-link">
+                                        <a href="/archives/numpy/">Prev</a>
+                                    </div>
+                                </div>
+                                <div class="next-item">
+                                    <div class="icon arrow-right"></div>
+                                    <div class="post-link">
+                                        <a href="/archives/statistical-computing/">Next</a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- frame/layout/post/post-footer - end -->
+                    </article>
+                    <!-- frame/layout/post - end -->
+
+                </div>
+            </div>
+
+            <!-- frame/layout/partials/footer - begin -->
+            <div class="footer">
+                <div class="flex-container">
+                    <div class="footer-text">
+                        Copyright &copy; 2022 Hzm | Powered by Hexo, Frame, & GitHub
+                    </div>
+                </div>
+            </div>
+            <!-- frame/layout/partials/footer - end -->
+
+        </div>
+    </body>
+</html>
+<!-- frame/layout/layout - end -->

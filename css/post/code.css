@@ -1,0 +1,23 @@
+.highlight {
+  margin: 0 0 $margin_16u 0;
+}
+.highlight .line {
+  width: $margin_48u;
+}
+td.gutter {
+  padding-right: $line_4px;
+  width: $margin_16u;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+}
+td.gutter pre {
+  overflow-x: visible;
+}
+td span {
+  line-height: $margin_4u;
+}
+pre {
+  margin: 0;
+  overflow-x: auto;
+}

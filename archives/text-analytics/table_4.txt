@@ -1,0 +1,5 @@
+|Pattern|Role|Example|What does it match?|
+|:-|:-|:-|:-|
+|\b|Word boundary|\bround|round but not ground|
+|^ outside []|Start of sentence|^[Rr]|R in Round or r in round|
+|$|End of sentence|.$|! in ground!, . in round.|

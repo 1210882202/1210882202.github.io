@@ -1,0 +1,17 @@
+|类型|备注|说明|
+|:-|:-|:-|
+|bool_ = bool8|8位|布尔类型|
+|int8 = byte|8位|整型|
+|int16 = short|16位|整型|
+|int32 = intc|32位|整型|
+|int_ = int64 = long = int0 = intp|64位|整型|
+|uint8 = ubyte|8位|无符号整型|
+|uint16 = ushort|16位|无符号整型|
+|uint32 = uintc|32位|无符号整型|
+|uint64 = uintp = uint0 = uint|64位|无符号整型|
+|float16 = half|16位|浮点型|
+|float32 = single|32位|浮点型|
+|float_ = float64 = double|64位|浮点型|
+|str_ = unicode_ = str0 = unicode|Unicode字符串||
+|datetime64|日期时间类型||
+|timedelta64|表示两个时间之间的间隔||

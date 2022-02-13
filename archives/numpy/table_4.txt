@@ -1,0 +1,7 @@
+|属性|含义|
+|:-|:-|
+|numpy.ndarray.ndim|返回数组的秩|
+|numpy.ndarray.shape|返回数组的维度|
+|numpy.ndarray.size|返回数组中所有元素的总量|
+|numpy.ndarray.dtype|ndarray对象的元素类型|
+|numpy.ndarray.itemsize|以字节的形式返回数组中每一个元素的大小|

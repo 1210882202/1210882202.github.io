@@ -1,0 +1,8 @@
+.footer {
+  margin-top: $margin_56u;
+  border: $color_002A56 $line_2px solid;
+}
+.footer .footer-text {
+  margin-top: $margin_20u;
+  margin-bottom: $margin_24u;
+}

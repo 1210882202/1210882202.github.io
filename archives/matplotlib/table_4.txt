@@ -1,0 +1,7 @@
+|属性|说明|
+|:-|:-|
+|alpha|透明度，值为0-1之间的浮点数|
+|axes|这个Artist所属的Axes|
+|figure|这个Artist所属的figure|
+|label|一个text label|
+|visible|控制Artist是否绘制|

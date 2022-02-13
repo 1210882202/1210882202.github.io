@@ -1,0 +1,79 @@
+.post-content {
+  margin-top: $margin_32u;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: $margin_24u;
+  margin-bottom: $margin_12u;
+}
+.post-content .post-toc li {
+  margin: 0;
+}
+.post-content .post-toc li ul {
+  margin: 0;
+}
+.post-content .post-toc a {
+  padding: 0;
+}
+.post-content li {
+  margin-top: $margin_8u;
+}
+.post-content ol {
+  padding-left: $margin_24u;
+  margin-left: $margin_12u;
+  margin-right: $margin_12u;
+  margin-top: $margin_16u;
+}
+.post-content ol ol {
+  margin-top: $margin_8u;
+}
+.post-content ul {
+  padding-left: $margin_24u;
+  margin-left: $margin_12u;
+  margin-right: $margin_12u;
+  margin-top: $margin_16u;
+}
+.post-content ul ul {
+  margin-top: $margin_8u;
+}
+.post-content ul li {
+  list-style-type: disc;
+}
+.post-content .task-list {
+  padding-left: 0;
+}
+.post-content .task-list .task-list-item {
+  list-style: none;
+}
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: $margin_16u;
+  border-left: $color_9FAAB5 $margin_4u solid;
+}
+blockquote p {
+  margin-left: $margin_16u;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: $margin_16u;
+  padding-top: $margin_8u;
+  padding-bottom: $margin_8u;
+}
+blockquote blockquote {
+  margin-left: $margin_16u;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+dl dt {
+  padding: $margin_8u 0;
+}
+dl dt::after {
+  content: " :";
+}
+dl dd {
+  margin: 0;
+}

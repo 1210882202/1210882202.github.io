@@ -1,0 +1,46 @@
+.gist td {
+  border: 0;
+}
+.gist a {
+  color: $color_9FAAB5;
+  background-image: none !important;
+}
+blockquote>footer {
+  margin: 0 $margin_16u;
+  padding: $margin_8u 0;
+  font-size: $font-size_12u;
+  color: $color_9FAAB5;
+}
+blockquote>footer cite {
+  margin-left: $margin_8u;
+}
+blockquote>footer cite::before {
+  content: " — ";
+}
+blockquote>footer strong {
+  color: $color_9FAAB5;
+  font-size: $font-size_12u;
+}
+blockquote>footer a {
+  color: $color_9FAAB5;
+  background-image: none !important;
+}
+figcaption {
+  font-family: roboto-mono, menlo, monospace;
+  font-size: $font-size_12u;
+  padding: $margin_8u 0;
+  color: $color_9FAAB5;
+}
+figcaption span {
+  padding-right: $margin_8u;
+}
+figcaption a {
+  color: $color_9FAAB5;
+  background-image: none !important;
+}
+blockquote.pullquote.left {
+  float: left;
+}
+blockquote.pullquote.right {
+  float: right;
+}

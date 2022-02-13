@@ -1,0 +1,259 @@
+<!-- frame/layout/layout - begin -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+
+        <!-- frame/layout/partials/head - begin -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+        <meta name="author" content="Hzm">
+
+        <link rel="icon" href="/favicon.ico">
+        <title>Hive | 个人博客</title>
+
+        <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');</style>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/frame.js"></script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <script src='https://unpkg.com/valine@1.4.16/dist/Valine.min.js'></script>
+        <!-- frame/layout/partials/head - end -->
+
+    <!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
+
+    <body>
+        <div class="mask-border"></div>
+        <div class="wrapper">
+
+            <!-- frame/layout/partials/header - begin -->
+            <div class="header">
+                <div class="flex-container">
+                    <div class="header-inner">
+                        <div class="site-brand-container">
+                            <a href="/">Hu Diao.</a>
+                        </div>
+                        <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">Menu</div>
+                        <nav class="site-nav">
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a href="/">主页</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/archives/">博客</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/tag/">标签</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/about/">关于</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- frame/layout/partials/header - end -->
+
+            <div class="main">
+                <div class="flex-container">
+
+                    <!-- frame/layout/post - begin -->
+                    <article id="post">
+                        <!-- frame/layout/post/post-head - begin -->
+                        <div class="post-head">
+                            <div class="post-info">
+                                <div class="tag-list">
+                                    <span class="post-tag">
+                                        <a href="/tag/language/">language</a>
+                                    </span>
+                                </div>
+                                <div class="post-title">
+                                    Hive
+                                </div>
+                                <span class="post-date">
+                                    12月 12, 2222
+                                </span>
+                            </div>
+                            <div class="post-img">
+                                <div class="h-line-primary"></div>
+
+                            </div>
+                        </div>
+                        <!-- frame/layout/post/post-head - end -->
+                        <!-- frame/layout/post/post-content - begin -->
+                        <div class="post-content">
+                            <div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#1-data-definition-language">1&#x3001;Data Definition Language</a><ul>
+<li><a href="#1-1-biao">1.1&#x3001;&#x8868;</a><ul>
+<li><a href="#1-1-1-zhi-jie-jian-biao-fa">1.1.1&#x3001;&#x76F4;&#x63A5;&#x5EFA;&#x8868;&#x6CD5;</a></li>
+<li><a href="#1-1-2-fu-zhi-jian-biao-fa">1.1.2&#x3001;&#x590D;&#x5236;&#x5EFA;&#x8868;&#x6CD5;</a></li>
+<li><a href="#1-1-3-cha-xun-jian-biao-fa">1.1.3&#x3001;&#x67E5;&#x8BE2;&#x5EFA;&#x8868;&#x6CD5;</a></li>
+<li><a href="#1-1-4-cha-kan-biao-de-xiang-guan-xin-xi">1.1.4&#x3001;&#x67E5;&#x770B;&#x8868;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</a></li>
+</ul>
+</li>
+<li><a href="#1-2-fen-ge-fu">1.2&#x3001;&#x5206;&#x9694;&#x7B26;</a><ul>
+<li><a href="#1-2-1-zi-duan-fen-ge-fu">1.2.1&#x3001;&#x5B57;&#x6BB5;&#x5206;&#x9694;&#x7B26;</a></li>
+<li><a href="#1-2-2-array-lei-xing-cheng-yuan-fen-ge-fu">1.2.2&#x3001;<code>array</code>&#x7C7B;&#x578B;&#x6210;&#x5458;&#x5206;&#x9694;&#x7B26;</a></li>
+<li><a href="#1-2-3-map-de-key-he-value-zhi-jian-de-fen-ge-fu">1.2.3&#x3001;<code>map</code>&#x7684;<code>key</code>&#x548C;<code>value</code>&#x4E4B;&#x95F4;&#x7684;&#x5206;&#x9694;&#x7B26;</a></li>
+</ul>
+</li>
+<li><a href="#1-3-fen-qu-biao">1.3&#x3001;&#x5206;&#x533A;&#x8868;</a></li>
+<li><a href="#1-4-fen-tong-biao">1.4&#x3001;&#x5206;&#x6876;&#x8868;</a></li>
+</ul>
+</li>
+<li><a href="#2-data-manipulation-language">2&#x3001;Data Manipulation Language</a><ul>
+<li><a href="#2-1-zhuang-zai-shu-ju">2.1&#x3001;&#x88C5;&#x8F7D;&#x6570;&#x636E;</a></li>
+<li><a href="#2-2-cha-ru-shu-ju">2.2&#x3001;&#x63D2;&#x5165;&#x6570;&#x636E;</a><ul>
+<li><a href="#2-2-1-pu-tong-biao">2.2.1&#x3001;&#x666E;&#x901A;&#x8868;</a></li>
+<li><a href="#2-2-2-fen-qu-biao">2.2.2&#x3001;&#x5206;&#x533A;&#x8868;</a></li>
+<li><a href="#2-2-3-fen-tong-biao">2.2.3&#x3001;&#x5206;&#x6876;&#x8868;</a></li>
+</ul>
+</li>
+<li><a href="#2-3-dao-chu-shu-ju">2.3&#x3001;&#x5BFC;&#x51FA;&#x6570;&#x636E;</a></li>
+<li><a href="#2-4-shan-chu-biao">2.4&#x3001;&#x5220;&#x9664;&#x8868;</a><ul>
+<li><a href="#2-4-1-shan-chu-zheng-ge-biao">2.4.1 &#x5220;&#x9664;&#x6574;&#x4E2A;&#x8868;</a></li>
+<li><a href="#2-4-2-shan-chu-suo-you-shu-ju">2.4.2&#x3001;&#x5220;&#x9664;&#x6240;&#x6709;&#x6570;&#x636E;</a></li>
+<li><a href="#2-4-3-shan-chu-bu-fen-shu-ju">2.4.3&#x3001;&#x5220;&#x9664;&#x90E8;&#x5206;&#x6570;&#x636E;</a><ul>
+<li><a href="#2-4-3-1-you-fen-qu-de-biao">2.4.3.1&#x3001;&#x6709;&#x5206;&#x533A;&#x7684;&#x8868;</a></li>
+<li><a href="#2-4-3-2-wu-fen-qu-de-biao">2.4.3.2 &#x65E0;&#x5206;&#x533A;&#x7684;&#x8868;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-data-query-language">3&#x3001;Data Query Language</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<hr>
+<h1><span id="1-data-definition-language">1&#x3001;Data Definition Language</span></h1><h2><span id="1-1-biao">1.1&#x3001;&#x8868;</span></h2><h3><span id="1-1-1-zhi-jie-jian-biao-fa">1.1.1&#x3001;&#x76F4;&#x63A5;&#x5EFA;&#x8868;&#x6CD5;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">EXTERNAL</span>] <span class="keyword">TABLE</span> [IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] table_name</span><br><span class="line">[(col_name data_type [<span class="keyword">DEFAULT</span> <span class="keyword">value</span>] [COMMENT col_comment], ...)]</span><br><span class="line">[COMMENT table_comment]</span><br><span class="line">[PARTITIONED <span class="keyword">BY</span> (col_name data_type [COMMENT col_comment], ...)]</span><br><span class="line">[CLUSTERED <span class="keyword">BY</span> (col_name, col_name, ...) [SORTED <span class="keyword">BY</span> (col_name [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>], ...)] <span class="keyword">INTO</span> num_buckets BUCKETS]</span><br><span class="line">[<span class="type">ROW</span> FORMAT row_format]</span><br><span class="line">[STORED <span class="keyword">AS</span> file_format]</span><br><span class="line">[LOCATION hdfs_path];</span><br></pre></td></tr></table></figure>
+
+<h3><span id="1-1-2-fu-zhi-jian-biao-fa">1.1.2&#x3001;&#x590D;&#x5236;&#x5EFA;&#x8868;&#x6CD5;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">EXTERNAL</span>] <span class="keyword">TABLE</span> [IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] new_table_name <span class="keyword">LIKE</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x590D;&#x5236;&#x73B0;&#x6709;&#x7684;&#x8868;&#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x4E0D;&#x590D;&#x5236;&#x6570;&#x636E;</li>
+</ul>
+<h3><span id="1-1-3-cha-xun-jian-biao-fa">1.1.3&#x3001;&#x67E5;&#x8BE2;&#x5EFA;&#x8868;&#x6CD5;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">EXTERNAL</span>] <span class="keyword">TABLE</span> [IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] new_table_name <span class="keyword">AS</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="1-1-4-cha-kan-biao-de-xiang-guan-xin-xi">1.1.4&#x3001;&#x67E5;&#x770B;&#x8868;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="1-2-fen-ge-fu">1.2&#x3001;&#x5206;&#x9694;&#x7B26;</span></h2><h3><span id="1-2-1-zi-duan-fen-ge-fu">1.2.1&#x3001;&#x5B57;&#x6BB5;&#x5206;&#x9694;&#x7B26;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line">fields terminated <span class="keyword">by</span> <span class="string">&apos;|&apos;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="1-2-2-array-lei-xing-cheng-yuan-fen-ge-fu">1.2.2&#x3001;<code>array</code>&#x7C7B;&#x578B;&#x6210;&#x5458;&#x5206;&#x9694;&#x7B26;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line">collection items terminated <span class="keyword">by</span> <span class="string">&apos;,&apos;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="1-2-3-map-de-key-he-value-zhi-jian-de-fen-ge-fu">1.2.3&#x3001;<code>map</code>&#x7684;<code>key</code>&#x548C;<code>value</code>&#x4E4B;&#x95F4;&#x7684;&#x5206;&#x9694;&#x7B26;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line">map keys terminated <span class="keyword">by</span> <span class="string">&apos;:&apos;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="1-3-fen-qu-biao">1.3&#x3001;&#x5206;&#x533A;&#x8868;</span></h2><ul>
+<li>&#x5206;&#x533A;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x8868;&#x5916;&#x5B57;&#x6BB5;</li>
+<li>&#x53EF;&#x901A;&#x8FC7;&#x591A;&#x5B57;&#x6BB5;&#x5206;&#x533A;</li>
+<li>&#x5EFA;&#x7ACB;&#x5206;&#x533A;<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">PARTITION</span>(partition_col<span class="operator">=</span><span class="string">&apos;partition_name&apos;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>&#x67E5;&#x770B;&#x73B0;&#x6709;&#x5206;&#x533A;<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> PARTITIONS table_name;</span><br></pre></td></tr></table></figure></li>
+<li>&#x5220;&#x9664;&#x5206;&#x533A;<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">PARTITION</span>(partition_col<span class="operator">=</span><span class="string">&apos;partition_name&apos;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2><span id="1-4-fen-tong-biao">1.4&#x3001;&#x5206;&#x6876;&#x8868;</span></h2><ul>
+<li>&#x5206;&#x6876;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x8868;&#x5185;&#x5B57;&#x6BB5;</li>
+</ul>
+<hr>
+<h1><span id="2-data-manipulation-language">2&#x3001;Data Manipulation Language</span></h1><h2><span id="2-1-zhuang-zai-shu-ju">2.1&#x3001;&#x88C5;&#x8F7D;&#x6570;&#x636E;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA [<span class="keyword">LOCAL</span>] INPATH path_to_file [overwrite] <span class="keyword">INTO</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="2-2-cha-ru-shu-ju">2.2&#x3001;&#x63D2;&#x5165;&#x6570;&#x636E;</span></h2><h3><span id="2-2-1-pu-tong-biao">2.2.1&#x3001;&#x666E;&#x901A;&#x8868;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span><span class="operator">|</span>OVERWRITE <span class="keyword">TABLE</span> table_name <span class="keyword">VALUES</span>(val_1, val_2, ...);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span><span class="operator">|</span>OVERWRITE <span class="keyword">TABLE</span> new_table_name <span class="keyword">SELECT</span> val_1, val_2, ... <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2-2-2-fen-qu-biao">2.2.2&#x3001;&#x5206;&#x533A;&#x8868;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- &#x9759;&#x6001;&#x5206;&#x533A;</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> table_name <span class="keyword">PARTITION</span>(partition_col<span class="operator">=</span><span class="string">&apos;partition_name&apos;</span>) <span class="keyword">VALUES</span>(val_1, val_2, ...);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- &#x52A8;&#x6001;&#x5206;&#x533A;</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> table_name <span class="keyword">PARTITION</span>(partition_col) <span class="keyword">VALUES</span>(val_1, val_2, ..., partition_name);</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2-2-3-fen-tong-biao">2.2.3&#x3001;&#x5206;&#x6876;&#x8868;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> table_name <span class="keyword">VALUES</span>(val_1, val_2, ...);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> new_table_name <span class="keyword">SELECT</span> val_1, val_2, ... <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="2-3-dao-chu-shu-ju">2.3&#x3001;&#x5BFC;&#x51FA;&#x6570;&#x636E;</span></h2><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> OVERWRITE [<span class="keyword">LOCAL</span>] DIRECTORY path_to_file</span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED fields terminated <span class="keyword">by</span> <span class="string">&apos;\t&apos;</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="2-4-shan-chu-biao">2.4&#x3001;&#x5220;&#x9664;&#x8868;</span></h2><h3><span id="2-4-1-shan-chu-zheng-ge-biao">2.4.1 &#x5220;&#x9664;&#x6574;&#x4E2A;&#x8868;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2-4-2-shan-chu-suo-you-shu-ju">2.4.2&#x3001;&#x5220;&#x9664;&#x6240;&#x6709;&#x6570;&#x636E;</span></h3><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>TRUNCATE</code>&#x53EA;&#x80FD;&#x5220;&#x9664;&#x5185;&#x90E8;&#x8868;&#x6570;&#x636E;&#x4E14;&#x4E0D;&#x80FD;&#x5220;&#x9664;&#x8868;&#x7ED3;&#x6784;</li>
+</ul>
+<h3><span id="2-4-3-shan-chu-bu-fen-shu-ju">2.4.3&#x3001;&#x5220;&#x9664;&#x90E8;&#x5206;&#x6570;&#x636E;</span></h3><h4><span id="2-4-3-1-you-fen-qu-de-biao">2.4.3.1&#x3001;&#x6709;&#x5206;&#x533A;&#x7684;&#x8868;</span></h4><ul>
+<li>&#x628A;<code>PARTITION</code>&#x5BF9;&#x5E94;&#x7684;&#x4FE1;&#x606F;&#x91CD;&#x5199;&#x4E00;&#x904D;&#xFF0C;&#x901A;&#x8FC7;<code>WHERE</code>&#x9650;&#x5B9A;&#x8981;&#x4FDD;&#x7559;&#x7684;&#x4FE1;&#x606F;</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">PARTITION</span>(partition_col<span class="operator">=</span><span class="string">&apos;partition_name&apos;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> table_name <span class="keyword">PARTITION</span>(partition_col<span class="operator">=</span><span class="string">&apos;partition_name&apos;</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> partition_col<span class="operator">=</span><span class="string">&apos;partition_name&apos;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4><span id="2-4-3-2-wu-fen-qu-de-biao">2.4.3.2 &#x65E0;&#x5206;&#x533A;&#x7684;&#x8868;</span></h4><p>- </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition_name <span class="operator">=</span> <span class="string">&apos;condition&apos;</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1><span id="3-data-query-language">3&#x3001;Data Query Language</span></h1>
+                        </div>
+                        <script>
+                            window.onload = detectors();
+                        </script>
+                        <!-- frame/layout/post/post-content - end -->
+                        <!-- frame/layout/post/post-footer - begin -->
+                        <div class="post-footer">
+                            <div class="h-line-primary"></div>
+                            <nav class="post-nav">
+                                <div class="prev-item">
+                                    <div class="icon arrow-left"></div>
+                                    <div class="post-link">
+                                        <a href="/archives/text-analytics/">Prev</a>
+                                    </div>
+                                </div>
+                                <div class="next-item">
+                                    <div class="icon arrow-right"></div>
+                                    <div class="post-link">
+                                        <a href="/archives/pytorch/">Next</a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- frame/layout/post/post-footer - end -->
+                    </article>
+                    <!-- frame/layout/post - end -->
+
+                </div>
+            </div>
+
+            <!-- frame/layout/partials/footer - begin -->
+            <div class="footer">
+                <div class="flex-container">
+                    <div class="footer-text">
+                        Copyright &copy; 2022 Hzm | Powered by Hexo, Frame, & GitHub
+                    </div>
+                </div>
+            </div>
+            <!-- frame/layout/partials/footer - end -->
+
+        </div>
+    </body>
+</html>
+<!-- frame/layout/layout - end -->

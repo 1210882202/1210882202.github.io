@@ -1,0 +1,38 @@
+library(tidyverse)
+library(palmerpenguins)
+
+flippers <- penguins %>%
+  filter(species == "Adelie") %>%
+  select(flipper_length_mm) %>%
+  unlist() %>%
+  as.vector()
+ggplot(tibble(flippers), aes(x = flippers)) +
+  xlab("Flipper length (mm)") +
+  geom_density(adjust = 1, size = 1)
+
+ggplot(tibble(flippers), aes(x = flippers)) +
+  geom_density(adjust = 1, size = 1) +
+  xlab("Flipper length (mm)") +
+  ylab("Density") +
+  geom_vline(aes(xintercept = mean(flippers, na.rm  = 1), linetype = "mean", color = "mean"), size = 1) +
+  geom_vline(aes(xintercept = median(flippers, na.rm = 1), linetype = "median", color = "median"), size = 1) +
+  geom_vline(aes(xintercept = mean(flippers, na.rm = 1, trim = 0.1), linetype = "t_mean", color = "t_mean"), size = 1) +
+  scale_linetype_manual(name = "stats", values = c(mean = "dashed", median = "dotted", t_mean = "dotdash")) +
+  scale_color_manual(name = "stats", values = c(mean = "red", median = "blue", t_mean = "purple")) +
+  ggtitle("Location estimators applied to flipper lengths")
+
+probabilities <- c(0.25, 0.5, 0.75)
+quantiles <- quantile(flippers, probs = probabilities, na.rm = 1)
+ggplot(tibble(flippers), aes(x = flippers)) +
+  theme_bw() +
+  geom_density(adjust = 1, size = 1) +
+  xlab("Flipper length (mm)") +
+  ylab("Density") +
+  geom_vline(xintercept = quantiles, linetype = "dashed", color = "blue") +
+  annotate("label", x = quantiles, y = 0.0325, size = 5, fill = "white", label = probabilities) +
+  annotate("label", x = quantiles, y = 0.0275, size = 5, fill = "white", label = quantiles)
+
+ggplot(data = penguins, aes(y = flipper_length_mm, x = species)) +
+  geom_boxplot() +
+  ylab("Flipper length (mm)") +
+  xlab("Penguin species")

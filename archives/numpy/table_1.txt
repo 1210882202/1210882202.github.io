@@ -1,0 +1,6 @@
+|名称|含义|
+|:-|:-|
+|numpy.nan|空值|
+|numpy.inf|正无穷大|
+|numpy.pi|圆周率|
+|numpy.e|自然常数|

@@ -1,0 +1,52 @@
+.highlight {
+  color: #000;
+  background: #faf7ed;
+}
+.highlight .code .comment {
+  color: #0177aa;
+}
+.highlight .code .built_in,
+.highlight .code .title {
+  color: #b854d4;
+}
+.highlight .code .number,
+.highlight .code .string {
+  color: #60ac39;
+}
+.highlight .code .keyword,
+.highlight .code .name,
+.highlight .code .tag,
+.highlight .code .type {
+  color: #df8500;
+}
+.highlight .code .literal,
+.highlight .code .params {
+  color: #f22c40;
+}
+.highlight .code .link {
+  color: #3d62f5;
+}
+.highlight .code .addition,
+.highlight .code .attr,
+.highlight .code .attribute,
+.highlight .code .builtin-name,
+.highlight .code .deletion,
+.highlight .code .doctag,
+.highlight .code .formula,
+.highlight .code .function,
+.highlight .code .meta,
+.highlight .code .regexp,
+.highlight .code .selector-class,
+.highlight .code .selector-id,
+.highlight .code .selector-tag,
+.highlight .code .subst,
+.highlight .code .symbol,
+.highlight .code .template-variable,
+.highlight .code .variable {
+  color: #000;
+}
+.highlight .code .emphasis,
+.highlight .code .strong {
+  font-style: italic;
+  font-weight: bold;
+}

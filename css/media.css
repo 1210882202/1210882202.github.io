@@ -1,0 +1,15 @@
+.flex-container {
+  width: 850px;
+  margin: 0 auto;
+}
+html {
+  font-size: 18px;
+}
+@media (max-width: 950px) {
+  .flex-container {
+    display: block;
+    width: calc(100% - 60px);
+    padding-left: 36px;
+    padding-right: 24px;
+  }
+}

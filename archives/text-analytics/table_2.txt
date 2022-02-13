@@ -1,0 +1,7 @@
+|Pattern|Role|Example|What does it match?|
+|:-|:-|:-|:-|
+|^ inside []|Negation|[^A-Z]|any char not an upper-case letter|
+|.|Any character|password.|password1, passwordx, ...|
+|?|Optional|woodchucks?|woodchuck, woodchucks|
+|*|Repeat 0 or more times|Woodchucks*|Woodchuck, Woodchucks, Woodchucksssss, ...|
+|+|Repeat 1 or more times|Woo+dchuck|Woodchucks, Wooodchucks, Wooooodchucks, ...|

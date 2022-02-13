@@ -1,0 +1,4 @@
+|Pattern|Role|Example|What does it match?|
+|:-|:-|:-|:-|
+|\||Disjunction (logical OR)|groundhog\|woodchuck|groundhog, woodchuck|
+|()|Sub-expression|wood(chuck\|louse)|woodlouse, woodchuck|
